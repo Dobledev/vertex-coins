@@ -1,0 +1,101 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    overflow: hidden;
+    font-family: 'Segoe UI', sans-serif;
+    border: none;
+}
+
+#coins-box {
+    display: none;
+    position: fixed;
+    top: 50%;
+    right: 3%;
+    background: #111111;
+    color: white;
+    border-radius: 16px;
+    padding: 32px 28px 24px 28px;
+    min-width: 280px;
+    z-index: 999;
+    text-align: center;
+    border: 2px solid #ffffff33;
+    box-sizing: border-box;
+    outline: none;
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+    pointer-events: none;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+    transition: none;
+}
+
+#coins-box.show {
+    display: block;
+    animation: coins-in 0.45s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    pointer-events: auto;
+}
+
+#coins-box.hide {
+    display: block;
+    animation: coins-out 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    pointer-events: none;
+}
+
+@keyframes coins-in {
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes coins-out {
+    from {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(40px) scale(0.95);
+    }
+}
+
+#coins-text {
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 1px;
+}
+
+#coins-text i {
+    margin-right: 10px;
+    color: #ffd700;
+    font-size: 2.2rem;
+}
+
+#close-btn {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 50%;
+    transition: background 0.25s, transform 0.25s;
+}
+
+#close-btn:hover {
+    background: rgba(255, 255, 255, 0.18);
+    transform: scale(1.15) rotate(10deg);
+}
